@@ -23,12 +23,11 @@ jobs:
       # later runs take a few minutes).
       - name: Create GTK dir (needed for cache restore)
         run: mkdir C:\gtk-build\gtk\x64\release
-      - uses: actions/cache@v4
+      - uses: actions/cache/restore@v4
         id: cache
         with:
           path: c:/gtk-build/gtk/x64/release/**
           key: gtk-windows-build
-          restore-keys: gtk-windows-build
 
       - name: Update path
         run: |
@@ -49,6 +48,15 @@ jobs:
           gvsbuild build --vs-ver vs2026 --msys-dir=C:\msys64 gtk4 libadwaita librsvg
           Move-Item "C:\Program Files\Git\usr\notbin" "C:\Program Files\Git\usr\bin"
           Move-Item "C:\Program Files\Git\notbin" "C:\Program Files\Git\bin"
+
+      # Save GTK right after it is built, so a later failure doesn't throw away
+      # the ~35 minute build.
+      - name: Save GTK cache
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: c:/gtk-build/gtk/x64/release/**
+          key: gtk-windows-build
 
       - uses: actions/checkout@v4
       - uses: Swatinem/rust-cache@v2
