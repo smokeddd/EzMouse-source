@@ -56,7 +56,7 @@ pub const LEAVE_RELEASE_ONLY: u32 = 1;
 /// instance and has its connection refused. ezmouse is deliberately
 /// **not** wire-compatible with lan-mouse or any other fork — change
 /// this magic to force a hard break against a future divergence.
-pub const PROTOCOL_MAGIC: [u8; 8] = *b"EZMOUSE";
+pub const PROTOCOL_MAGIC: [u8; 8] = *b"EZMOUSE1";
 
 /// Peer supports the session-scoped, retransmittable
 /// [`ProtoEvent::HandoverEnter`] handshake.
