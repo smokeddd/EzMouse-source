@@ -1,0 +1,30 @@
+[workspace]
+resolver = "2"
+members = [
+    "input-capture",
+    "input-emulation",
+    "input-event",
+    "ezmouse",
+    "ezmouse-ipc",
+    "ezmouse-cli",
+    "ezmouse-gtk",
+    "ezmouse-proto",
+]
+
+[workspace.package]
+version = "0.17.1"
+
+[workspace.dependencies]
+input-event = { package = "ezmouse-input-event", path = "input-event", version = "0.17.1" }
+input-capture = { package = "ezmouse-input-capture", path = "input-capture", version = "0.17.1" }
+input-emulation = { package = "ezmouse-input-emulation", path = "input-emulation", version = "0.17.1" }
+ezmouse-proto = { path = "ezmouse-proto", version = "0.17.1" }
+ezmouse-ipc = { path = "ezmouse-ipc", version = "0.17.1" }
+ezmouse-cli = { path = "ezmouse-cli", version = "0.17.1" }
+ezmouse-gtk = { path = "ezmouse-gtk", version = "0.17.1" }
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+strip = true
+panic = "abort"

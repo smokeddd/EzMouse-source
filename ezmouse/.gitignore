@@ -1,0 +1,16 @@
+/target
+.claude/*
+!.claude/settings.json
+.gdbinit
+.idea/
+.vs/
+.vscode/
+.direnv/
+result
+*.pem
+*.csr
+extfile.conf
+
+# flatpak files
+.flatpak-builder
+repo

@@ -1,0 +1,34 @@
+Mousehop
+========
+
+Mousehop is a fork of lan-mouse (https://github.com/feschber/lan-mouse).
+
+Original work Copyright (C) 2022 Ferdinand Schober and the lan-mouse
+contributors. Licensed under the GNU General Public License, version 3
+or (at your option) any later version.
+
+This is a modified version. The project was forked beginning in April
+2026 and rebranded as "Mousehop" in May 2026. Modifications for the
+Mousehop fork are Copyright (C) 2026 Jon Kinney and the Mousehop
+contributors, and are likewise licensed under the GNU General Public
+License, version 3 or any later version.
+
+See the LICENSE file for the full text of the license.
+
+
+EzMouse
+=======
+
+EzMouse is a modified version of Mousehop (https://github.com/jondkinney/mousehop,
+commit 6b9a2733d6b8ca17f61f9d891a660ac295d95e28), which is itself a fork of
+lan-mouse. All three are licensed under the GNU General Public License,
+version 3 or (at your option) any later version; see the LICENSE file.
+
+Changes made for EzMouse:
+  - Renamed from Mousehop to EzMouse (binaries, crates, app id, config names,
+    mDNS service name).
+  - Added portable mode (ezmouse/src/portable.rs): on Windows, the config,
+    identity certificate and crash log are stored in a "data" folder beside
+    ezmouse.exe instead of %LOCALAPPDATA%.
+  - Removed upstream packaging, release and CI infrastructure not used by
+    EzMouse.
